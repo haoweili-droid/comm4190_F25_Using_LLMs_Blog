@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Exploring LLMS",
     "section": "",
-    "text": "Haowei’s Test\n\n\n\nLanguage\n\nLearning\n\n\n\nTesting Blogging\n\n\n\n\n\nSep 2, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
+    "text": "LLMs and Use of Metaphor\n\n\n\nLearning\n\n\n\nHow well do LLMs do in understanding and generating metaphors and idioms?\n\n\n\n\n\nSep 12, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nHaowei’s Test\n\n\n\nLanguage\n\nLearning\n\n\n\nTesting Blogging\n\n\n\n\n\nSep 2, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/002_post_title/Language Formation.html",
@@ -12,6 +12,13 @@
     "title": "Haowei’s Test",
     "section": "",
     "text": "The first half of Chapter one of The Language Game talks about languages formed through verbal and gestures. Formation of language is a process of multiple factors, but it almost always includes interactions, goals, and evolution with time.\n\n\n\nCoral Reef"
+  },
+  {
+    "objectID": "posts/W3P1_LLMs and Use of Metaphor/LLMs and Use of Metaphor.html",
+    "href": "posts/W3P1_LLMs and Use of Metaphor/LLMs and Use of Metaphor.html",
+    "title": "LLMs and Use of Metaphor",
+    "section": "",
+    "text": "LLMs and Use of Metaphor\nIn this week’s class we had a first glance at how LLMs are good at language and communication with humans in different scenarios and manners, but most of the examples we saw involved casual daily language. For example, when we talked about the word “bank” in class, there were many meanings associated with “bank” such as a financial institution, plane banking, or basketball bank shot, but they are still in common expressions. I am interested in whether LLM is good at language structures that add complexity in meaning, such as metaphors or idioms.\n\nPart I: LLM’s ability in understanding existing metaphors.\nI found a list of metaphors from Udemy and asked LLM to explain them.\nThe Prompt I gave to Chatgpt (GPT-5) was :\nExplain what each of the sentence means:\n\nI could eat a horse\nIt all went pear shaped\nIt’s no skin off my nose\nShe is an open book: she has nothing to hide.\nHe wears his heart on his sleeve\nIt’s showtime\nThese are the dog days of summer\nYou’re building castles in the air\nI was a million miles away\nHe marches to his own drummer\nSplitting hairs\nNitpicking\nThe whole enchilada\nA nine-to-five job\nHit the books\nLLM’s response (number four should be omitted as the answer was accidentally revealed):\n\n\n\nChatgpt response on 15 idioms\n\n\nLLM did well in recognizing metaphors and explaining them with the correct meaning. This is not surprising to me as we have discussed in class and also read from Walfram’s blog that LLM is trained to predict the most likely word that happens next. It is also trained on a wide dataset, so anything that has long been published online would be easily searched through and recognized by LLMs.\n\n\nPart II: LLM’s ability in understanding newly created metaphors.\nI was also curious if I make up a metaphor, would LLM infer it from the emotional context and the wide range of human language convention?\nI wrote these metaphors and sent to LLM: - Your heart is a stone - The wind is roaring - The store is a warehouse\n\n\n\nChatgpt understanding on metaphors I created\n\n\nIt still seemed to understand them really well. I think this is not surprising because LLMs are trained to predict the meaning behind languages. My metaphors will be easy for humans to understand, so it should be the same for LLMs.\n\n\nPart III: Can humans understand LLM created idioms?\nI was then curious about LLM’s ability to create metaphors and if humans can understand them.\n\n\n\nGPT created metaphor\n\n\nI interviewed three friends and they were all able to understand these metaphors and expressions. These metaphors seem pretty easy to be understood and also carry the depth and arts of expression. This makes me wonder about LLM’s ability in creative and novel writing. I will go further from there next week."
   },
   {
     "objectID": "posts/000_test_post/index.html",

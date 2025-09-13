@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Haowei">
+<meta name="dcterms.date" content="2025-09-12">
+<meta name="description" content="How well do LLMs do in understanding and generating metaphors and idioms?">
 
-<title>About – My Explorations with LLMs</title>
+<title>LLMs and Use of Metaphor – My Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ca6ef412952242cddf6c3fdbe739bbca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ca6ef412952242cddf6c3fdbe739bbca.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,19 +73,19 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Explorations with LLMs</span>
     </a>
   </div>
@@ -92,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -113,29 +117,123 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">LLMs and Use of Metaphor</h1>
+                  <div>
+        <div class="description">
+          How well do LLMs do in understanding and generating metaphors and idioms?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Haowei </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 12, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>About this blog: LLMs Exploration</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</main>  
+
+
+
+<section id="llms-and-use-of-metaphor" class="level1">
+<h1>LLMs and Use of Metaphor</h1>
+<p>In this week’s class we had a first glance at how LLMs are good at language and communication with humans in different scenarios and manners, but most of the examples we saw involved casual daily language. For example, when we talked about the word “bank” in class, there were many meanings associated with “bank” such as a financial institution, plane banking, or basketball bank shot, but they are still in common expressions. I am interested in whether LLM is good at language structures that add complexity in meaning, such as metaphors or idioms.</p>
+<section id="part-i-llms-ability-in-understanding-existing-metaphors." class="level3">
+<h3 class="anchored" data-anchor-id="part-i-llms-ability-in-understanding-existing-metaphors.">Part I: LLM’s ability in understanding existing metaphors.</h3>
+<p>I found a list of metaphors from Udemy and asked LLM to explain them.</p>
+<p>The Prompt I gave to Chatgpt (GPT-5) was :</p>
+<pre><code>Explain what each of the sentence means:
+
+I could eat a horse
+It all went pear shaped
+It’s no skin off my nose
+She is an open book: she has nothing to hide.
+He wears his heart on his sleeve
+It’s showtime
+These are the dog days of summer
+You’re building castles in the air
+I was a million miles away
+He marches to his own drummer
+Splitting hairs
+Nitpicking
+The whole enchilada
+A nine-to-five job
+Hit the books</code></pre>
+<p>LLM’s response (number four should be omitted as the answer was accidentally revealed):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="metaphor_15.png" class="img-fluid figure-img"></p>
+<figcaption>Chatgpt response on 15 idioms</figcaption>
+</figure>
 </div>
- <!-- /main -->
+<p>LLM did well in recognizing metaphors and explaining them with the correct meaning. This is not surprising to me as we have discussed in class and also read from Walfram’s blog that LLM is trained to predict the most likely word that happens next. It is also trained on a wide dataset, so anything that has long been published online would be easily searched through and recognized by LLMs.</p>
+</section>
+<section id="part-ii-llms-ability-in-understanding-newly-created-metaphors." class="level3">
+<h3 class="anchored" data-anchor-id="part-ii-llms-ability-in-understanding-newly-created-metaphors.">Part II: LLM’s ability in understanding newly created metaphors.</h3>
+<p>I was also curious if I make up a metaphor, would LLM infer it from the emotional context and the wide range of human language convention?</p>
+<p>I wrote these metaphors and sent to LLM: - Your heart is a stone - The wind is roaring - The store is a warehouse</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gpt_response_human_metaphor.png" class="img-fluid figure-img"></p>
+<figcaption>Chatgpt understanding on metaphors I created</figcaption>
+</figure>
+</div>
+<p>It still seemed to understand them really well. I think this is not surprising because LLMs are trained to predict the meaning behind languages. My metaphors will be easy for humans to understand, so it should be the same for LLMs.</p>
+</section>
+<section id="part-iii-can-humans-understand-llm-created-idioms" class="level3">
+<h3 class="anchored" data-anchor-id="part-iii-can-humans-understand-llm-created-idioms">Part III: Can humans understand LLM created idioms?</h3>
+<p>I was then curious about LLM’s ability to create metaphors and if humans can understand them.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gpt_created_metaphor.png" class="img-fluid figure-img"></p>
+<figcaption>GPT created metaphor</figcaption>
+</figure>
+</div>
+<p>I interviewed three friends and they were all able to understand these metaphors and expressions. These metaphors seem pretty easy to be understood and also carry the depth and arts of expression. This makes me wonder about LLM’s ability in creative and novel writing. I will go further from there next week.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
