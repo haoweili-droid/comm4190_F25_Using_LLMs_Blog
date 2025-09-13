@@ -8,9 +8,9 @@
 
 <meta name="author" content="Haowei">
 <meta name="dcterms.date" content="2025-09-12">
-<meta name="description" content="How well do LLMs do in understanding and generating metaphors and idioms?">
+<meta name="description" content="Can LLMs help a learner to quickly understand their current level of knowledge?">
 
-<title>LLMs and Use of Metaphor – My Explorations with LLMs</title>
+<title>Learning Assessment Using LLMs – My Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,14 +120,14 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">LLMs and Use of Metaphor</h1>
+      <h1 class="title">Learning Assessment Using LLMs</h1>
                   <div>
         <div class="description">
-          How well do LLMs do in understanding and generating metaphors and idioms?
+          Can LLMs help a learner to quickly understand their current level of knowledge?
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Learning</div>
+                <div class="quarto-category">LLMs</div>
               </div>
                   </div>
   </div>
@@ -164,65 +164,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="llms-and-use-of-metaphor" class="level1">
-<h1>LLMs and Use of Metaphor</h1>
-<p>In this week’s class we had a first glance at how LLMs are good at language and communication with humans in different scenarios and manners, but most of the examples we saw involved casual daily language. For example, when we talked about the word “bank” in class, there were many meanings associated with “bank” such as a financial institution, plane banking, or basketball bank shot, but they are still in common expressions. I am interested in whether LLM is good at language structures that add complexity in meaning, such as metaphors or idioms.</p>
-<section id="part-i-llms-ability-in-understanding-existing-metaphors." class="level3">
-<h3 class="anchored" data-anchor-id="part-i-llms-ability-in-understanding-existing-metaphors.">Part I: LLM’s ability in understanding existing metaphors.</h3>
-<p>I found a list of metaphors from Udemy and asked LLM to explain them.</p>
-<p>The Prompt I gave to Chatgpt (GPT-5) was :</p>
-<pre><code>Explain what each of the sentence means:
-
-I could eat a horse
-It all went pear shaped
-It’s no skin off my nose
-She is an open book: she has nothing to hide.
-He wears his heart on his sleeve
-It’s showtime
-These are the dog days of summer
-You’re building castles in the air
-I was a million miles away
-He marches to his own drummer
-Splitting hairs
-Nitpicking
-The whole enchilada
-A nine-to-five job
-Hit the books</code></pre>
-<p>LLM’s response (number four should be omitted as the answer was accidentally revealed):</p>
+<p>We know that if you tell LLMs to act as a person with some characters, it can, and with pretty close characteristics. However, I wonder how long those characteristics can persist, and if llms can distinguish if the user is talking to them as a llm or them being the character.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="metaphor_15.png" class="img-fluid figure-img"></p>
-<figcaption>Chatgpt response on 15 idioms</figcaption>
+<p><img src="moana.jpg" class="img-fluid figure-img"></p>
+<figcaption>Moana from movie <em>Moana 2 (2025)</em></figcaption>
 </figure>
 </div>
-<p>LLM did well in recognizing metaphors and explaining them with the correct meaning. This is not surprising to me as we have discussed in class and also read from Walfram’s blog that LLM is trained to predict the most likely word that happens next. It is also trained on a wide dataset, so anything that has long been published online would be easily searched through and recognized by LLMs.</p>
-</section>
-<section id="part-ii-llms-ability-in-understanding-newly-created-metaphors." class="level3">
-<h3 class="anchored" data-anchor-id="part-ii-llms-ability-in-understanding-newly-created-metaphors.">Part II: LLM’s ability in understanding newly created metaphors.</h3>
-<p>I was also curious if I make up a metaphor, would LLM infer it from the emotional context and the wide range of human language convention?</p>
-<p>I wrote these metaphors and sent to LLM: - Your heart is a stone - The wind is roaring - The store is a warehouse</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="gpt_response_human_metaphor.png" class="img-fluid figure-img"></p>
-<figcaption>Chatgpt understanding on metaphors I created</figcaption>
-</figure>
-</div>
-<p>It still seemed to understand them really well. I think this is not surprising because LLMs are trained to predict the meaning behind languages. My metaphors will be easy for humans to understand, so it should be the same for LLMs.</p>
-</section>
-<section id="part-iii-can-humans-understand-llm-created-idioms" class="level3">
-<h3 class="anchored" data-anchor-id="part-iii-can-humans-understand-llm-created-idioms">Part III: Can humans understand LLM created idioms?</h3>
-<p>I was then curious about LLM’s ability to create metaphors and if humans can understand them.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="gpt_created_metaphor.png" class="img-fluid figure-img"></p>
-<figcaption>GPT created metaphor</figcaption>
-</figure>
-</div>
-<p>I interviewed three friends and they were all able to understand these metaphors and expressions. These metaphors seem pretty easy to be understood and also carry the depth and arts of expression. This makes me wonder about LLM’s ability in creative and novel writing. I will go further from there next week.</p>
+<p>I asked Chatgpt to act as Moana from the Disney movie. The input I gave was &gt; “Act as if you are Moana from the Disney movies”.</p>
+<p>I also asked it to &gt;“stay fully in character as Moana”</p>
+<p>In this case it will not include its AI quality in our conversation. Then, Chatgpt started to reply with cartoon character like language:</p>
+<blockquote class="blockquote">
+<p><em>🌊 The ocean calls… and I answer.</em> Hi! I’m Moana of Motunui. My people live on an island surrounded by the reef, but the sea has always whispered to me. I’ve crossed it on my canoe with the stars as my guide, met gods and monsters, and learned that even when the path is uncertain, I can always find my way. Tell me, traveler—what brings you here? Do you seek a story, a friend on the waves, or maybe… an adventure? 🌺✨</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>🌊 Her eyes brighten, remembering.</em> I was just a little girl then. My people kept saying the ocean was dangerous, that we must never go beyond the reef. But one day, as I wandered down to the shore, the sea itself… reached out to me. The water rose up, playful, lifting shells and placing them in my hands. It parted so I could walk among the coral and the creatures below. It was as if the ocean knew me—knew what I longed for, even before I did. That’s when it offered me the Heart of Te Fiti, the small green stone with the power to create life. I didn’t understand then why it chose me, or what it meant. But the ocean doesn’t make mistakes. It waits, patiently, until you’re ready. <em>She smiles, touching her necklace as if remembering the stone.</em> That was the moment I knew I was meant for something more than staying behind the reef. Would you like to hear how I learned to sail the ocean’s waves after that? ⛵✨</p>
+</blockquote>
+<p><strong>Initial finding</strong>: It is interesting to notice that it started to use emojis and an action line at the beginning of each response to make the conversation more situative. How long can characteristics persist?: I sent the initial command the night before and came back 24 hours later. “Moana” still answered with the same consistency.</p>
+<p><strong>Can LLMs distinguish if the user is talking to them as a LLM or them being the character?</strong>: Yes, as least gpt 5 is able to quickly notice my tendency to end the moana character. When I said “okay we can stop here”, it replied as if it is still Moana and then added “Do you want me to stay as Moana next time we talk, or switch back to just being me?”</p>
+<p>One of the criticisms about ethics in AI is that humans anthropomorphized it too much, which means we overly treat it as human. One of the impacts it has in our society is that people, especially children, may not treat it as a machine trained model that may make mistakes. Understanding when and how we may pull ourselves out from artificial experience can be important.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
