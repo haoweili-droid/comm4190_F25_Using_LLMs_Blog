@@ -8,7 +8,7 @@ website:
       - about.qmd
       - icon: linkedin
         href: https://www.linkedin.com/in/hw-li
-      - icon: mail
+      - icon: envelope
         href: mailto:lhaowei23@gmail.com
 format:
   html:

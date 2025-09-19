@@ -1,9 +1,14 @@
 ---
-title: About
+title: About the author
 image: portfolio_headshot.jpg
 about:
   template: jolla
 ---
 
-Hi, I’m Haowei.
-I’m a learning experience designer passionate about creating meaningful, engaging educational experiences through thoughtfully designed technologies and instructional materials. With an interdisciplinary background spanning education, psychology, interaction design, and marketing, I explore innovative ways to transform how we learn and grow. My work centers on harnessing the potential of tools like large language models to spark curiosity, foster deeper understanding, and support lifelong learning.
+Hi, I’m **Haowei**.  
+
+I’m a learning experience designer passionate about creating meaningful, engaging educational experiences through thoughtfully designed technologies and instructional materials.  
+
+With an interdisciplinary background spanning **education, psychology, interaction design, and marketing**, I explore innovative ways to transform how we learn and grow.  
+
+My current work focuses on exploring **large language models (LLMs)** and leveraging their potential to spark curiosity, foster deeper understanding, and support lifelong learning.  
