@@ -6,10 +6,10 @@ website:
   navbar:
     right:
       - about.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+      - icon: linkedin
+        href: https://www.linkedin.com/in/hw-li
+      - icon: mail
+        href: mailto:lhaowei23@gmail.com
 format:
   html:
     theme: pulse
