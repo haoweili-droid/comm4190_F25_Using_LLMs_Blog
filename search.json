@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Exploring LLMS",
     "section": "",
-    "text": "Artisticalize your headshot? A prompting journal and comparison between GPT-5 and gemini 2.5 flash.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCreative Writing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearning Assessment Using LLMs\n\n\n\nLearning\n\n\n\nCan LLMs help a learner to quickly understand their current level of knowledge?\n\n\n\n\n\nSep 12, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nConsistency of LLMs in Role Taking\n\n\n\nLLMs\n\n\n\nHow long can Chatgpt be Moana?\n\n\n\n\n\nSep 12, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nLLMs and Use of Metaphor\n\n\n\nLearning\n\n\n\nHow well do LLMs do in understanding and generating metaphors and idioms?\n\n\n\n\n\nSep 12, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
+    "text": "LLMs and Personalized Learning\n\n\n\nPrompt Engineering\n\nMultimodel\n\nLearning\n\n\n\nA thought piece from Google’s ‘Learn Your Way’ function\n\n\n\n\n\nSep 19, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nArtisticalize your headshot? A prompting journal and comparison between GPT-5 and gemini 2.5 flash.\n\n\n\nPrompt Engineering\n\nMultimodel\n\nImage Generation\n\n\n\nCan AI become my visual designer?\n\n\n\n\n\nSep 18, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nLLMs and Creative Writing\n\n\n\nPrompt Engineering\n\nText Generation\n\nCreative Writing\n\n\n\nWriting skills of LLMs\n\n\n\n\n\nSep 18, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nLearning Assessment Using LLMs\n\n\n\nLearning\n\n\n\nCan LLMs help a learner to quickly understand their current level of knowledge?\n\n\n\n\n\nSep 12, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nConsistency of LLMs in Role Taking\n\n\n\nLLMs\n\n\n\nHow long can Chatgpt be Moana?\n\n\n\n\n\nSep 12, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nLLMs and Use of Metaphor\n\n\n\nLearning\n\n\n\nHow well do LLMs do in understanding and generating metaphors and idioms?\n\n\n\n\n\nSep 12, 2025\n\n\nHaowei\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/W3P1_Use_of_Metaphor/LLMs and Use of Metaphor.html",
@@ -18,7 +18,7 @@
     "href": "posts/W4P1_Artistic_Headshot/Artistic_Headshot.html",
     "title": "Artisticalize your headshot? A prompting journal and comparison between GPT-5 and gemini 2.5 flash.",
     "section": "",
-    "text": "---\ntitle: \"Artisticalize your headshot? A prompting journal and comparison between GPT-5 and gemini 2.5 flash.\"\ndescription: \"Can AI become my visual designer?\" \nauthor: \"Haowei\"\ndate: \"9/18/2025\"\ncategories:\n  - Prompt Engineering\n  - Multimodel\n  - Image Generation\n---"
+    "text": "Artisticalize your headshot? A prompting journal and comparison between GPT-5 and gemini 2.5 flash."
   },
   {
     "objectID": "posts/W3P2_Learning_Assessment/LLMs and Learning Assessment.html",
@@ -30,9 +30,9 @@
   {
     "objectID": "posts/W4P3_Personalized Learning/personalized_learning.html",
     "href": "posts/W4P3_Personalized Learning/personalized_learning.html",
-    "title": "My Explorations with LLMs",
+    "title": "LLMs and Personalized Learning",
     "section": "",
-    "text": "---\ntitle: \"LLMs and Personalized Learning\"\ndescription: \"A thought piece from Google's 'Learn Your Way' function\" \nauthor: \"Haowei\"\ndate: \"9/19/2025\"\ncategories:\n  - Prompt Engineering\n  - Multimodel\n  - Learning\n---\n\n\n# Personalized Learning"
+    "text": "# Personalized Learning"
   },
   {
     "objectID": "posts/000_test_post/index.html",
@@ -58,9 +58,9 @@
   {
     "objectID": "posts/W4P2_Creative Writing/Creative_Writing.html",
     "href": "posts/W4P2_Creative Writing/Creative_Writing.html",
-    "title": "Creative Writing",
+    "title": "LLMs and Creative Writing",
     "section": "",
-    "text": "---\ntitle: \"LLMs and Creative Writing\"\ndescription: \"Writing skills of LLMs\" \nauthor: \"Haowei\"\ndate: \"9/18/2025\"\ncategories:\n  - Prompt Engineering\n  - Text Generation\n  - Creative Writing\n---"
+    "text": "Creative Writing"
   },
   {
     "objectID": "about.html",
