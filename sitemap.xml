@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-09-20T03:58:51.790Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W3P1_Use_of_Metaphor/LLMs and Use of Metaphor.html</loc>
-    <lastmod>2025-09-20T03:58:51.795Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W4P1_Artistic_Headshot/Artistic_Headshot.html</loc>
-    <lastmod>2025-09-20T03:58:51.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W3P2_Learning_Assessment/LLMs and Learning Assessment.html</loc>
-    <lastmod>2025-09-20T03:58:51.804Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W4P3_Personalized Learning/personalized_learning.html</loc>
-    <lastmod>2025-09-20T03:58:51.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
-    <lastmod>2025-09-20T03:58:51.795Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W3P3_Consistency_of_LLMs_in_Role_Taking/Consistency_of_LLM_in_role_taking.html</loc>
-    <lastmod>2025-09-20T03:58:51.811Z</lastmod>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/about.html</loc>
+    <lastmod>2025-09-29T04:52:04.758Z</lastmod>
   </url>
   <url>
     <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W4P2_Creative Writing/Creative_Writing.html</loc>
-    <lastmod>2025-09-20T03:58:51.812Z</lastmod>
+    <lastmod>2025-09-29T04:52:04.780Z</lastmod>
   </url>
   <url>
-    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-09-20T03:58:51.790Z</lastmod>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W3P2_Learning_Assessment/LLMs and Learning Assessment.html</loc>
+    <lastmod>2025-09-29T04:52:04.771Z</lastmod>
+  </url>
+  <url>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W3P1_Use_of_Metaphor/LLMs and Use of Metaphor.html</loc>
+    <lastmod>2025-09-29T04:52:04.763Z</lastmod>
+  </url>
+  <url>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
+    <lastmod>2025-09-29T04:52:04.762Z</lastmod>
+  </url>
+  <url>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/index.html</loc>
+    <lastmod>2025-09-29T04:52:04.758Z</lastmod>
+  </url>
+  <url>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W3P3_Consistency_of_LLMs_in_Role_Taking/Consistency_of_LLM_in_role_taking.html</loc>
+    <lastmod>2025-09-29T04:52:04.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W5_P1_Increase_Trust/trust_ai.html</loc>
+    <lastmod>2025-09-29T04:52:04.782Z</lastmod>
+  </url>
+  <url>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W4P1_Artistic_Headshot/Artistic_Headshot.html</loc>
+    <lastmod>2025-09-29T04:52:04.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://haoweili-droid.github.io/comm4190_F25_Using_LLMs_Blog/posts/W4P3_Personalized Learning/personalized_learning.html</loc>
+    <lastmod>2025-09-29T04:52:04.780Z</lastmod>
   </url>
 </urlset>
