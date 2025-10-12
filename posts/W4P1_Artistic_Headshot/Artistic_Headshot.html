@@ -174,13 +174,13 @@ ul.task-list li input[type="checkbox"] {
 <p>I have always wanted to create an artistic profile photo that represents me but also includes creativity. As LLMs can now create great images, I decided to have them redesign my profile photo.</p>
 <p>As a reference, below I include my profile photo (as it appears in the “About” section of this blog site) and my desired painting art style with artistic elements and frames surrounding the figure.</p>
 <div data-align="left">
-<p><img src="headshot.jpg" alt="my headshot" width="200"></p>
-</div>
-<p><em>My Profile Photo</em></p>
-<div data-align="left">
 <p><img src="style.png" alt="the style I want" width="300"></p>
 </div>
 <p><em>The Style I want (photos from freepik)</em></p>
+<div data-align="left">
+<p><img src="headshot.jpg" alt="my headshot" width="200"></p>
+</div>
+<p><em>My Profile Photo</em></p>
 <p>I was curious about which model performs better in image redesign tasks, so I decided to do a control test between two LLMs and understand which one is better at doing these types of image generation tasks. I knew that for image creation, specific tools such as Midjourney or Google’s Nanobanana may work better, but considering the experience of non tech savvy audiences who may interact with general chat agents more, I decided to use the two most popular general AI chat tools: ChatGPT and Gemini. Among all the LLMs models, the latest and most advanced ones include GPT-5 and Gemini 2.5 flash in ChatGPT and Google Gemini chats.</p>
 </section>
 <section id="prompts-and-controlled-conditions" class="level2">
@@ -214,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: left;"><strong>Provide Examples</strong></td>
 <td style="text-align: left;">“Insert a diverse set of test cases where the task was done correctly”</td>
-<td style="text-align: left;"><em>I’ve included several examples attached here.</em><br><img src="sample_headshots.png" class="img-fluid" alt="Sample"><br>(Sample headshot photos from freepik)</td>
+<td style="text-align: left;"><em>I’ve included several examples attached here.</em><br><img src="style.png" alt="Sample" width="200"><br>(Sample headshot photos from freepik)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Evaluate Quality</strong></td>
@@ -233,6 +233,26 @@ ul.task-list li input[type="checkbox"] {
 <p>In this section, I will reflect on my experience prompting and evaluating the two models to redesign my profile photo based on my imagined style.</p>
 <p>GPT-5: Slow start, Fast Improvement GPT-5 had a long processing time, missed instructions on formatting and lacked text explanations along with images generated.</p>
 <p>GPT-5 seemed to misunderstand formatting commands: After my initial prompt, which I mentioned that the photo to be redesigned will be uploaded later, GPT-5 already started to generate a photo using the two sample images, and I got a combined collage that was not myself at all but the figure in the sample photo. GPT-5 misunderstood the single person headshot to be my photo.</p>
+<div data-align="left">
+<img src="g1.png" alt="wrong figure" width="200">
+</div>
+<p>It also ignored my request for generating five design options by only returning one.</p>
+<p>GPT-5 only followed image generation with text explanation after conversations were branched. I think there might also be a design gap here on Chatgpt interface. The circle on the right of the input box will turn to a square when it is still processing or generating. Normally the message will also show a round point which is loading, but under image generation mode it usually doesn’t. Therefore, when the agent is still generating text, I wasn’t able to notice the state and kept typing my command. This might be a reason that gpt-5 only returned images without any text or communications with me.</p>
+<div data-align="left">
+<img src="g2.png" alt="chatgpt interfce" width="600">
+</div>
+<p>However, I do have to say that even with all those weird reactions, the image quality was high. I would say the first version it generated earned my 75% satisfaction. I was surprised actually. Although it didn’t listen to my command to combine the realistic figure with the cartoon frame but instead created a whole cartoon headshot, the style and color looked nice, and it was different from the sample I sent, which made me feel that this is novel creation rather than just copy pasting.</p>
+<p>Version 1 User Evaluation: Nice color and style. Could make the figure look younger…</p>
+<div data-align="left">
+<img src="g3.png" alt="version 1 gpt-5" width="200">
+</div>
+<p>I thought this painted me older than I looked, so I sent a follow up prompt: &gt; I like the color and elements added, but this cartoon style seems to make people look older than they should. The character in this photo is 23 year old. Also this does not necessarily have to be in cartoon style. You may keep the realistic character. Now redesign based on the suggestions, return 4 designs, 2 in cartoon style and 2 not.</p>
+<p>I like the color and elements added, but this cartoon style seems to make people look older than they should. The character in this photo is 23 year old. Also this does not necessarily have to be in cartoon style. You may keep the realistic character. Now redesign based on the suggestions, return 4 designs, 2 in cartoon style and 2 not.</p>
+<div data-align="left">
+<img src="g4.png" alt="final version gpt-5" width="200">
+</div>
+<p>And this iteration was almost 90% what I wanted. I did four more rounds of prompting to try different gaze, expressions, color intensity etc, but this version was eventually what I chose.</p>
+<p>(more about Gemini 2.5 flash performance on the next blog)</p>
 
 
 </section>
