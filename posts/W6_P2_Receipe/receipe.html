@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-9d0d2c4fe2252cabc78cecb5d575732d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -83,8 +83,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Explorations with LLMs</span>
     </a>
@@ -169,27 +167,79 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="chef-llm" class="level1">
 <h1>Chef LLM</h1>
+<section id="reflecting-on-using-large-language-models-to-design-a-recipe-and-its-story" class="level2">
+<h2 class="anchored" data-anchor-id="reflecting-on-using-large-language-models-to-design-a-recipe-and-its-story">Reflecting on Using Large Language Models to Design a Recipe and Its Story</h2>
+<p>As someone who pays attention to balance in daily diet and genuinely enjoys cooking, I often turn to ChatGPT for quick suggestions about what to eat in a day. Those interactions are usually practical and lightweight, focused on efficiency rather than creativity.</p>
+<p>This time, I wanted to explore a different question. Instead of asking an LLM to recommend food, I wanted to see whether it could participate in the creative process of inventing a dish, and further, whether it could help think through how that dish might live in the real world as part of a restaurant menu and a marketing strategy. This post reflects on the process of how I used an LLM not just to generate a recipe, but to understand novelty, presentation, and storytelling around food.</p>
+</section>
+<section id="prompting-for-a-novel-recipe" class="level2">
+<h2 class="anchored" data-anchor-id="prompting-for-a-novel-recipe">Prompting for a Novel Recipe</h2>
+<p>I did not begin by asking for a traditional Chinese recipe. Instead, I framed the prompt around novelty and reinterpretation.</p>
+<p>My prompt: &gt; “Create a recipe for a novel Chinese food.”</p>
+<p>This prompt was intentionally open-ended. I avoided specifying ingredients or techniques because I wanted to see how the model would reason about what “novel” might mean in a culinary context.</p>
+<p>LLM response (excerpt): &gt; “This dish blends traditional Cantonese dim sum with floral osmanthus fragrance and a modern twist, transforming black vinegar into edible pearls rather than a dipping sauce.”</p>
+<p>After generating the core idea, I asked the model to help visualize the recipe as a step-by-step process. This was not only about making the dish easier to follow. It was also about understanding how LLMs translate creative work into structured systems. The resulting recipe broke cooking into clear stages: making the osmanthus syrup, preparing the filling, forming the wrappers, assembling the dumplings, and creating the vinegar pearls. Each step was treated as a transformation, with inputs and outputs clearly defined. This structure felt familiar from a technical perspective. It resembled how engineers describe pipelines or workflows. In this sense, the LLM made the creative process legible by turning it into a system. This also revealed a strength of LLMs: <strong>They are particularly effective at reducing ambiguity by imposing structure, even in domains that are traditionally intuitive or sensory.</strong></p>
+<p>What stood out to me was that the model did not only list ingredients. It framed the recipe conceptually. It identified contrast, transformation, and reinterpretation as sources of novelty. This made me realize that prompting an LLM is less like asking a question and more like setting constraints for exploration. The openness of the prompt invited conceptual reasoning rather than procedural output.</p>
+<p>Once the core idea emerged, I continued prompting in a conversational way. Instead of asking for a final answer, I treated the interaction as an ongoing design dialogue.</p>
+<p>My prompt: &gt; “Create images to help people understand the recipe and make it easy to follow.”</p>
+LLM response (excerpt): &gt; “Here is an illustrated step-by-step recipe guide that visualizes ingredients, preparation stages, and assembly to reduce cognitive load.” &gt;
 <div data-align="center">
 <img src="receipe.png" alt="GPT-5 generated receipt infographic for a new Chinese Dish" width="200">
 </div>
+<blockquote class="blockquote">
 <p style="text-align: center;">
 <em>Osmanthus-Scented Shrimp Dumplings Receipes</em>
 </p>
-<p>As someone who is aware of balances in daily diet and loves cooking, I found it fast to ask Chatgpt about what to eat in a day.</p>
+</blockquote>
+<p>At this stage, I noticed a shift. The model began to translate cooking into a systematic workflow. Each step became a clear transformation, similar to stages in a technical pipeline.</p>
+<p>This revealed a strength of LLMs. They naturally impose structure, even on domains that are typically intuitive or sensory. Cooking, in this interaction, became a sequence of clearly defined processes.</p>
 <div data-align="center">
 <img src="food1.png" alt="GPT-5 generated photo of osmenthus Shrimp" width="300">
 </div>
 <p style="text-align: center;">
 <em>Osmanthus-Scented Shrimp Dumplings Photo</em>
 </p>
+<p>When the conversation moved to plating design, I encountered a limitation.</p>
+<p>My reflection: &gt; “This really looks like xiao long bao. It just adds vinegar as bubbles rather than on the plate. Is it novel?”</p>
+<p>This moment was important. The LLM had optimized toward a visually recognizable form. While technically correct, it conflicted with my goal of novelty.</p>
+<p>LLM response (excerpt): &gt; “You are right to notice that the dumplings resemble xiao long bao. The novelty lies more in flavor design and presentation rather than form.”</p>
+<p>While this response explained the logic, it also highlighted a pattern. LLMs often default to familiar solutions unless explicitly pushed away from them.</p>
+<p>I followed up by narrowing the constraint.</p>
+<p>My prompt: &gt; “Yes, add more novelty.”</p>
+<p>This small change in prompting produced a meaningful shift. The plating evolved toward crescent-shaped dumplings, minimalist composition, and negative space. The dish began to look less like a variation on an existing classic and more like a contemporary reinterpretation.</p>
+<p>This reinforced an important lesson. Novelty does not emerge automatically. It requires critique, iteration, and intentional redirection from the human side.</p>
 <div data-align="center">
 <img src="food2.png" alt="GPT-5 generated photo of osmenthus Shrimp Plating Design" width="300">
 </div>
 <p style="text-align: center;">
 <em>Osmanthus-Scented Shrimp Dumplings Plating Design</em>
 </p>
+</section>
+<section id="extending-the-recipe-into-marketing-and-branding" class="level2">
+<h2 class="anchored" data-anchor-id="extending-the-recipe-into-marketing-and-branding">Extending the Recipe Into Marketing and Branding</h2>
+<p>After the recipe and plating felt coherent, I extended the conversation beyond cooking.</p>
+<p>My prompt: &gt; “How would this fit into current restaurants and menus? Where would it be served and to whom?”</p>
+<p>The LLM responded by situating the dish within fine dining, modern dim sum houses, and cocktail-focused restaurants. It emphasized visual consistency, storytelling, and social media shareability.</p>
+<p>At this point, the dish transformed into something else. It became a branding artifact. It was no longer only about taste, but about identity, audience, and experience.</p>
+<p>This cross-domain reasoning felt natural within the dialogue. It demonstrated how LLMs can connect creative production with strategic thinking, even when those domains are rarely considered together.</p>
+</section>
+<section id="reflections-on-prompting-and-creativity" class="level2">
+<h2 class="anchored" data-anchor-id="reflections-on-prompting-and-creativity">Reflections on Prompting and Creativity</h2>
+<p>This experiment led me to several reflections about working with LLMs creatively.</p>
+<ol type="1">
+<li>Prompts are not neutral. They shape the space of possible outputs. Open prompts encourage conceptual exploration, while constrained prompts guide refinement.</li>
+<li>LLMs are most effective when treated as collaborators rather than authorities. They generate possibilities quickly, but they rely on human judgment to evaluate whether those possibilities are meaningful.</li>
+<li>Novelty requires friction. Questioning the output and pushing back is often more productive than refining prompts endlessly.</li>
+</ol>
+<p>Finally, the real value of LLMs emerges when they operate across domains. The strength of this process was not the recipe itself, but the ability to move fluidly between food design, visual presentation, and marketing strategy.</p>
+</section>
+<section id="some-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="some-thoughts">Some Thoughts</h2>
+<p>This project began with a simple curiosity about food and evolved into an exploration of how LLMs can support creative system thinking. Recipes, visuals, and branding became interconnected parts of the same design problem. <strong>Chef LLM</strong> is not about replacing chefs, designers, or marketers. It is about using AI as a thinking partner that expands the space of possibilities.</p>
+<p>If creativity is about making choices among many options, then LLMs are powerful tools for exploration. What remains uniquely human is deciding which ideas are worth refining and which ones are worth serving.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

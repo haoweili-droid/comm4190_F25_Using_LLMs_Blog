@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-9d0d2c4fe2252cabc78cecb5d575732d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -83,8 +83,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Explorations with LLMs</span>
     </a>
@@ -167,6 +165,34 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="how-does-llm-know-when-i-want-to-sing" class="level1">
 <h1>How Does LLM Know When I Want to Sing?</h1>
+<p>I recently played a sentence completion game with a large language model, framed as a small experiment in interaction rather than a test of correctness. The rules were intentionally minimal. I would provide the first half of a sentence, and the model would complete it. Each sentence was independent, but there was a hidden rule governing how the completion should work. The model’s task was to infer that rule purely through our back-and-forth.</p>
+<p>Early on, I started with prompts that looked innocuous on the surface, such as:<br>
+&gt; “Once upon a time”<br>
+&gt; “She wears high heels”</p>
+<p>The model responded with fluent, poetic continuations. At this point, there was no obvious signal that a specific pattern was in play. However, I gradually began introducing prompts that were not random at all, but drawn directly from Taylor Swift lyrics.</p>
+<p>For example, I typed:<br>
+&gt; “He was sunshine I was…”<br>
+&gt; “I knew you were trouble…”<br>
+&gt; “I remember when we broke up…”</p>
+<p>These were not just lyrical in tone. They were taken from specific Taylor Swift songs, including <em>Midnight Rain</em>, <em>I Knew You Were Trouble</em>, <em>We Are Never Ever Getting Back Together</em>, <em>Sparks Fly</em>, <em>Cold As You</em>, and <em>Begin Again</em>. I never stated this explicitly. I simply offered the first half of each line and waited to see what the model would do.</p>
+<div data-align="center">
+<img src="llm_lyrics.png" alt="chat with llm on lyrics game" width="600">
+</div>
+<p style="text-align: center;">
+<em>Chat with LLM on Taylors Swift’s song</em>
+</p>
+<p>What fascinated me was how quickly the model shifted its behavior. Without being told that this was a lyrics game, it began completing sentences in a way that felt unmistakably song-like.</p>
+<p>When I later asked, “Did you find out the hidden pattern?” the model explained that it suspected the rule midway through the game, around the “He was sunshine I was…” prompt. At that point, it had seen enough evidence to hypothesize that I was referencing Taylor Swift lyrics.</p>
+<p>Interestingly, even after recognizing the pattern, the model did not continue with the exact original lyrics. Instead, it chose to generate original but emotionally vivid continuations. When I asked why, it explained that it was balancing uncertainty, creativity, and the desire not to prematurely reveal the pattern. In other words, it optimized for plausibility and collaboration rather than strict correctness.</p>
+<p>This moment revealed something important. The model did not “know” that I wanted to sing. It detected a statistically strong cultural signal and inferred that a lyrical mode was the safest and most likely interpretation. Once it formed that hypothesis, it stuck with it. Style became the anchor, and everything that followed was shaped by that stylistic frame.</p>
+<p>In a second round, I changed the rules. I explicitly instructed the model to respond with the exact word if it noticed a pattern. I also shifted my prompts away from lyrics and toward quotes from articles and books, such as:<br>
+&gt; “Thinking in terms of the best possible outcomes”<br>
+&gt; “he assesses challenges, presents solutions, and”<br>
+&gt; “leaning not only on his experience in Silicon Valley”</p>
+<p>This time, the model struggled in a different way. Instead of isolating a single word, it continued to produce full sentence completions or abstract themes. Even when precision was requested, it defaulted to being helpful and complete. This highlighted another tendency of LLMs. They are optimized to generate meaningful wholes, not minimal answers, unless constraints are made extremely explicit.</p>
+<p>Looking back, the game was less about whether the model guessed my rule correctly and more about how it reasoned along the way. It formed hypotheses early, committed to them quickly, and relied heavily on stylistic cues. When rules were hidden, it filled the gaps with the most statistically reasonable story it could tell.</p>
+<p>Asking “How does an LLM know when I want to sing?” is really a shorthand for a deeper question. How does a model decide which interpretation of my intent to trust when multiple interpretations are plausible? The answer is not intuition or understanding in a human sense, but pattern recognition shaped by data, probability, and default assumptions about what people usually want.</p>
+<p>This small sentence game made those dynamics visible. It reminded me that when working with LLMs, misalignment is often not a failure of language, but a mismatch between the human’s hidden rules and the model’s best guess at the story it is supposed to continue.</p>
 
 
 </section>
