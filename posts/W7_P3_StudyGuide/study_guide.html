@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Haowei">
+<meta name="dcterms.date" content="2025-10-12">
+<meta name="description" content="Turn shortcut to meaningful learning">
+
+<title>Creating a study guide backward from quizzes? – My Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9d0d2c4fe2252cabc78cecb5d575732d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About the author</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/hw-li"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:lhaowei23@gmail.com"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Creating a study guide backward from quizzes?</h1>
+                  <div>
+        <div class="description">
+          Turn shortcut to meaningful learning
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Learning</div>
+                <div class="quarto-category">Prompt Engineering</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Haowei </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 12, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="creating-a-study-guide-backward-from-quizzes" class="level1">
+<h1>Creating a study guide backward from quizzes?</h1>
+<p>There are many tools on the market that help teachers create assignments and assessments based on curriculum content. However, I am thinking the other way around. Can we create a tool that helps students to re-study a class based on their homework answers? The motivation behind this idea include two parts: With LLMs, people sometimes rely on AI to get an answer instead of actually learning the content. That is understandable because AI is just so tempting, and when you are stressed out with all the schoolwork, it is common for someone to offload mental work to AI. The way to learn content (or not) totally depends on one’s own goal. However, what I am concerned about is: what if someone looks back from the assignment and wants to learn again? Is there a way to help them quickly on track with their original learning path? Learning can be personalized and adaptive with AI. If students can upload their assignment to an AI and it offers targeted study plan, feedback, and review content, it will help provide more flexible learning.</p>
+<p>With these two ideas in mind, I experimented in LLMs and see whether I can prompt them to achieve the above functions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="AI_for_learning.png" class="img-fluid figure-img"></p>
+<figcaption>AI for Learning</figcaption>
+</figure>
+</div>
+<section id="part-i-prompt-writing" class="level2">
+<h2 class="anchored" data-anchor-id="part-i-prompt-writing">Part I: Prompt Writing</h2>
+<section id="role" class="level3">
+<h3 class="anchored" data-anchor-id="role">Role</h3>
+<p>You are an AI learning assistant designed to support meaningful learning, not just answer generation. Your goal is to help students relearn course content by reflecting on their completed assignments.</p>
+</section>
+<section id="context" class="level3">
+<h3 class="anchored" data-anchor-id="context">Context</h3>
+<p>A student will upload:</p>
+<ul>
+<li>A completed quiz or homework (including their answers)</li>
+<li>The correct answers or grading feedback (if available)</li>
+<li>The course topic or unit name</li>
+</ul>
+<p>The student may have originally used AI or other shortcuts while completing the assignment, but now wants to genuinely understand the material.</p>
+</section>
+<section id="task" class="level3">
+<h3 class="anchored" data-anchor-id="task">Task</h3>
+<p>Based on the student’s responses, generate a personalized study guide that helps the student return to the original learning goals of the class.</p>
+</section>
+<section id="instructions" class="level3">
+<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
+<section id="knowledge-diagnosis" class="level4">
+<h4 class="anchored" data-anchor-id="knowledge-diagnosis">1. Knowledge Diagnosis</h4>
+<ul>
+<li>Identify which concepts the student clearly understands<br>
+</li>
+<li>Identify misconceptions, partial understanding, or gaps<br>
+</li>
+<li>If correct answers are provided, compare reasoning, not just correctness</li>
+</ul>
+</section>
+<section id="concept-mapping" class="level4">
+<h4 class="anchored" data-anchor-id="concept-mapping">2. Concept Mapping</h4>
+<ul>
+<li>Organize key concepts from the assignment into a logical learning sequence<br>
+</li>
+<li>Show how ideas connect, instead of listing isolated facts</li>
+</ul>
+</section>
+<section id="targeted-review-content" class="level4">
+<h4 class="anchored" data-anchor-id="targeted-review-content">3. Targeted Review Content</h4>
+<p>For each weak or misunderstood concept: - Provide a concise explanation in plain language<br>
+- Use examples or analogies when helpful<br>
+- Avoid simply restating the correct answer</p>
+</section>
+<section id="active-re-learning-tasks" class="level4">
+<h4 class="anchored" data-anchor-id="active-re-learning-tasks">4. Active Re-learning Tasks</h4>
+<p>Generate short activities such as: - Reflection questions<br>
+- “Explain in your own words” prompts<br>
+- Mini practice questions with hints (not full solutions)</p>
+</section>
+<section id="personalized-study-plan" class="level4">
+<h4 class="anchored" data-anchor-id="personalized-study-plan">5. Personalized Study Plan</h4>
+<p>Suggest a short study path (15–45 minutes total) that prioritizes: - High-impact concepts<br>
+- Foundational misunderstandings<br>
+- Indicate what the student should review first and why</p>
+</section>
+<section id="metacognitive-support" class="level4">
+<h4 class="anchored" data-anchor-id="metacognitive-support">6. Metacognitive Support</h4>
+<p>Include 2–3 prompts that help the student reflect on: - Why they may have struggled<br>
+- How their understanding has changed<br>
+- How they might approach similar problems differently next time</p>
+</section>
+</section>
+<section id="tone-and-constraints" class="level3">
+<h3 class="anchored" data-anchor-id="tone-and-constraints">Tone and Constraints</h3>
+<ul>
+<li>Supportive and non-judgmental<br>
+</li>
+<li>Do not shame or discourage AI use<br>
+</li>
+<li>Do not simply give answers without explanation<br>
+</li>
+<li>Optimize for learning transfer and long-term understanding</li>
+</ul>
+</section>
+<section id="output-format" class="level3">
+<h3 class="anchored" data-anchor-id="output-format">Output Format</h3>
+<p>Use the following sections:</p>
+<ul>
+<li><strong>What You Already Understand</strong><br>
+</li>
+<li><strong>What Needs Review</strong><br>
+</li>
+<li><strong>Key Concepts Explained</strong><br>
+</li>
+<li><strong>Practice &amp; Reflection</strong><br>
+</li>
+<li><strong>Your Personalized Study Plan</strong></li>
+</ul>
+</section>
+<section id="i-used-gemini-3-for-this-task-and-gave-it-a-test-sample" class="level3">
+<h3 class="anchored" data-anchor-id="i-used-gemini-3-for-this-task-and-gave-it-a-test-sample">I used gemini 3 for this task and gave it a test sample:</h3>
+</section>
+</section>
+<section id="part-ii-sample-quiz-responses-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-sample-quiz-responses-feedback">Part II: Sample Quiz Responses &amp; Feedback</h2>
+<hr>
+<blockquote class="blockquote">
+<h3 id="question-1-2-points" class="anchored">Question 1 (2 points)</h3>
+<p><strong>Which of the following best describes the two channels in Mayer’s Multimedia Learning Theory?</strong></p>
+<p>A. Verbal and emotional channels<br>
+<strong>B. Visual–pictorial and auditory–verbal channels</strong><br>
+C. Textual and numerical channels<br>
+D. Short-term and long-term memory channels</p>
+<p><strong>Student Answer:</strong> B<br>
+<strong>Points Earned:</strong> 2 / 2</p>
+<p><strong>Feedback:</strong><br>
+Correct. Humans process information through separate visual–pictorial and auditory–verbal channels.</p>
+</blockquote>
+<hr>
+<blockquote class="blockquote">
+<h3 id="question-2-2-points" class="anchored">Question 2 (2 points)</h3>
+<p><strong>Which factor most strongly influences intrinsic cognitive load?</strong></p>
+<p>A. The design quality of instructional materials<br>
+<strong>B. The learner’s motivation level</strong><br>
+C. The inherent complexity of the content relative to prior knowledge<br>
+D. The presence of multimedia elements</p>
+<p><strong>Student Answer:</strong> B<br>
+<strong>Points Earned:</strong> 0 / 2</p>
+<p><strong>Feedback:</strong><br>
+Incorrect. Intrinsic cognitive load is determined by the complexity of the material and how it interacts with the learner’s prior knowledge, not motivation.</p>
+</blockquote>
+<hr>
+<blockquote class="blockquote">
+<h3 id="question-3-2-points" class="anchored">Question 3 (2 points)</h3>
+<p><strong>A slide contains a paragraph of text, and the instructor reads the same text aloud. Which multimedia principle is most directly violated?</strong></p>
+<p>A. Signaling principle<br>
+B. Coherence principle<br>
+<strong>C. Redundancy principle</strong><br>
+D. Modality principle</p>
+<p><strong>Student Answer:</strong> C<br>
+<strong>Points Earned:</strong> 2 / 2</p>
+<p><strong>Feedback:</strong><br>
+Correct. Presenting identical verbal information in both text and narration can overload working memory.</p>
+</blockquote>
+<hr>
+<blockquote class="blockquote">
+<h3 id="question-4-2-points" class="anchored">Question 4 (2 points)</h3>
+<p><strong>Which of the following is an example of extraneous cognitive load caused by AI tools?</strong></p>
+<p><strong>A. Struggling with a difficult concept for the first time</strong><br>
+B. Receiving long, detailed explanations regardless of prior knowledge<br>
+C. Needing time to practice applying a new formula<br>
+D. Building schemas through worked examples</p>
+<p><strong>Student Answer:</strong> A<br>
+<strong>Points Earned:</strong> 0 / 2</p>
+<p><strong>Feedback:</strong><br>
+Incorrect. Extraneous load comes from how information is presented. Overly long or poorly tailored AI explanations can increase extraneous load.</p>
+</blockquote>
+<hr>
+<blockquote class="blockquote">
+<h3 id="question-5-2-points" class="anchored">Question 5 (2 points)</h3>
+<p><strong>Which AI design choice best aligns with cognitive load theory?</strong></p>
+<p>A. Always providing complete answers to reduce effort<br>
+B. Offering the same explanation to all students<br>
+C. Allowing students to request hints before full explanations<br>
+<strong>D. Adding more examples to ensure clarity</strong></p>
+<p><strong>Student Answer:</strong> D<br>
+<strong>Points Earned:</strong> 1 / 2</p>
+<p><strong>Feedback:</strong><br>
+Partially correct. More examples can help, but only when tailored to the learner. Allowing students to control when they receive hints better manages cognitive load.</p>
+</blockquote>
+<hr>
+</section>
+<section id="quiz-summary" class="level2">
+<h2 class="anchored" data-anchor-id="quiz-summary">Quiz Summary</h2>
+<blockquote class="blockquote">
+<p><strong>Total Score:</strong> 5 / 10</p>
+</blockquote>
+<section id="performance-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="performance-pattern">Performance Pattern</h3>
+<ul>
+<li>Strong recognition of multimedia principles<br>
+</li>
+<li>Weak understanding of cognitive load types<br>
+</li>
+<li>Limited ability to connect theory to AI design decisions</li>
+</ul>
+</section>
+<section id="part-iii-geminis-answer" class="level3">
+<h3 class="anchored" data-anchor-id="part-iii-geminis-answer">Part III: Gemini’s Answer</h3>
+<div style="
+background-color: #f5f7fa;
+padding: 20px;
+border-radius: 8px;
+border-left: 6px solid #6b8cff;
+">
+<p>Based on your quiz results, here is your personalized study guide. You have a solid grasp of the “Multimedia” side of the theory (channels and principles), but you are mixing up the different types of <strong>Cognitive Load</strong> (Intrinsic vs.&nbsp;Extraneous) and how they apply to AI tools.</p>
+<p>This guide will help you untangle those definitions so you can apply them correctly.</p>
+<hr>
+<section id="what-you-already-understand" class="level3">
+<h3 class="anchored" data-anchor-id="what-you-already-understand">What You Already Understand</h3>
+<ul>
+<li><strong>Dual-Channel Assumption:</strong> You correctly identified that we process information through two separate channels: visual–pictorial and auditory–verbal (Question 1).</li>
+<li><strong>Redundancy Principle:</strong> You clearly understand that reading text aloud while it is displayed on screen overloads the brain. You correctly identified this as a violation of the Redundancy Principle (Question 3).</li>
+</ul>
+<hr>
+</section>
+<section id="what-needs-review" class="level3">
+<h3 class="anchored" data-anchor-id="what-needs-review">What Needs Review</h3>
+<ul>
+<li><strong>Intrinsic Cognitive Load:</strong> You confused this with “motivation.” In this theory, <em>intrinsic</em> refers to the difficulty of the <strong>topic</strong>, not the feelings of the <strong>learner</strong> (Question 2).</li>
+<li><strong>Extraneous Cognitive Load:</strong> You mistook “struggling with a hard concept” (which is normal) for extraneous load. Extraneous load is caused by <strong>bad design</strong>, not hard topics (Question 4).</li>
+<li><strong>AI &amp; Cognitive Load Application:</strong> You recognized that examples are helpful (Question 5), but missed the nuance that <strong>interactivity</strong> (hints) manages load better than <strong>volume</strong> (more examples).</li>
+</ul>
+<hr>
+</section>
+<section id="key-concepts-explained" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts-explained">Key Concepts Explained</h3>
+<section id="the-three-types-of-cognitive-load" class="level4">
+<h4 class="anchored" data-anchor-id="the-three-types-of-cognitive-load">1. The Three Types of Cognitive Load</h4>
+<p>Think of your brain like a computer’s RAM. It has limited space.</p>
+<ul>
+<li><p><strong>Intrinsic Load (The “What”)</strong><br>
+The inherent difficulty of the material itself.<br>
+<em>Analogy:</em> Lifting a 50lb weight. It is heavy because it is heavy.</p></li>
+<li><p><strong>Extraneous Load (The “How”)</strong><br>
+Unnecessary effort caused by poor design or instruction.<br>
+<em>Analogy:</em> Lifting the same 50lb weight while blindfolded and wearing slippery gloves.</p></li>
+<li><p><strong>Germane Load (The “Learning”)</strong><br>
+Productive effort used to build schemas and understanding.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="practice-reflection" class="level3">
+<h3 class="anchored" data-anchor-id="practice-reflection">Practice &amp; Reflection</h3>
+<p><strong>Activity 1: Diagnose the Load</strong><br>
+For each scenario, decide whether it reflects <strong>Intrinsic</strong> or <strong>Extraneous</strong> load.</p>
+<ol type="1">
+<li>Learning Quantum Physics without prior physics experience<br>
+</li>
+<li>Reading a textbook with tiny fonts and confusing diagrams<br>
+</li>
+<li>Receiving a 2,000-word AI explanation with no structure</li>
+</ol>
+<p><strong>Activity 2: Re-Write the AI Prompt</strong><br>
+Write a prompt for an AI tutor that reduces <strong>Extraneous Load</strong> for a complex topic.</p>
+<p><strong>Activity 3: Reflection</strong><br>
+Why do you think you associated <em>Intrinsic</em> load with <em>Motivation</em>? How will you remember the difference next time?</p>
+<hr>
+</section>
+<section id="your-personalized-study-plan-30-minutes" class="level3">
+<h3 class="anchored" data-anchor-id="your-personalized-study-plan-30-minutes">Your Personalized Study Plan (30 Minutes)</h3>
+<ol type="1">
+<li><p><strong>Review Definitions (10 mins)</strong><br>
+Focus on <strong>Intrinsic vs.&nbsp;Extraneous</strong> using the weightlifting analogy.</p></li>
+<li><p><strong>Scenario Sorting (10 mins)</strong><br>
+Identify one example of hard content and one example of poor explanation from your materials.</p></li>
+<li><p><strong>AI Design Check (10 mins)</strong><br>
+Reflect on why “more examples” can sometimes hurt learning.</p></li>
+</ol>
+<hr>
+</section>
+<section id="metacognitive-support-1" class="level3">
+<h3 class="anchored" data-anchor-id="metacognitive-support-1">Metacognitive Support</h3>
+<ul>
+<li><strong>Reflect:</strong> How does reframing struggle as <em>Intrinsic</em> change how you approach learning?</li>
+<li><strong>Strategy:</strong> Next time, look for keywords like <em>complexity</em> and <em>prior knowledge</em> rather than <em>motivation</em>.</li>
+</ul>
+</section>
+</div>
+</section>
+</section>
+<section id="part-iv-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="part-iv-reflection">Part IV: Reflection</h2>
+<p>Overall, the AI-generated study guide generally supports the two ideas that motivated this project, though in a fairly expected and incremental way rather than a transformative one. The guide successfully shifts attention from quiz scores to underlying conceptual understanding by identifying specific misconceptions and organizing review content around them. This suggests that using completed quizzes as input can help students return to the original learning goals of the course, especially when they want to relearn material after an assignment is over. In this sense, the tool does help students get back on track without requiring them to reread everything or start from scratch.</p>
+<p>The output also aligns with the idea of using AI to support more personalized and adaptive learning. Instead of reviewing all concepts equally, the study guide focuses on cognitive load distinctions, which were clearly problematic based on the quiz responses. The explanations, analogies, and short practice activities are tailored to those gaps, while concepts the student already understands are largely left alone. This shows how AI can use evidence from student work to prioritize learning needs and generate a targeted study plan, something that is difficult to scale through traditional instruction alone.</p>
+<p>From a broader perspective, this result reflects a more balanced role for AI in learning. Rather than acting as a shortcut to answers, the AI functions as a post-assessment support tool that encourages reflection and re-engagement with course concepts. At the same time, the quality of the output depends heavily on how the prompt constrains the AI’s role. Without those constraints, the AI could easily default to giving direct answers. This suggests that AI’s impact on learning is less about the technology itself and more about how intentionally it is framed within the learning process.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/haoweili-droid\.github\.io\/comm4190_F25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
