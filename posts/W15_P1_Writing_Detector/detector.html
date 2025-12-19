@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Haowei">
-<meta name="dcterms.date" content="2025-12-12">
-<meta name="description" content="How may LLMs facilitate collaboration?">
+<meta name="dcterms.date" content="2025-12-01">
+<meta name="description" content="And Should we use it?">
 
-<title>A thought on AI Tutor – My Explorations with LLMs</title>
+<title>Are AI writing detectors accurate? – My Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,15 +118,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">A thought on AI Tutor</h1>
+      <h1 class="title">Are AI writing detectors accurate?</h1>
                   <div>
         <div class="description">
-          How may LLMs facilitate collaboration?
+          And Should we use it?
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
                 <div class="quarto-category">Learning</div>
+                <div class="quarto-category">Ethics</div>
               </div>
                   </div>
   </div>
@@ -144,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 12, 2025</p>
+        <p class="date">December 1, 2025</p>
       </div>
     </div>
     
@@ -163,18 +164,39 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Reading Superagency throughout this semester felt like having an ongoing conversation with the book rather than reaching a single conclusion at the end. Early on, I was genuinely convinced by the authors’ optimism. They frame AI as something that can increase human agency instead of replacing it, and they support this claim with many real examples. For instance, they describe AI tools used in mental health platforms and community-based applications, arguing that AI can scale care and support in ways humans alone cannot. At that point in the reading, I found myself agreeing with their argument that focusing only on AI’s risks can prevent us from seeing its potential benefits.</p>
-<p>As I kept reading, though, my reaction became more mixed. A lot of the examples they use come from industry settings, such as professional platforms and data-driven tools connected to companies like LinkedIn. While these cases are persuasive, they also made me question who AI is really designed for. The authors often suggest that AI will broadly benefit society, but I struggled with this assumption. Not everyone has equal access to AI tools, and not everyone is equally represented in the data these systems are trained on. When the book discusses data as a resource for improving AI, it sometimes feels like it assumes that more data automatically leads to better outcomes, without fully addressing whose data is being used and who actually benefits.</p>
-<p>One section that shifted my thinking was the discussion of how AI systems are tested and evaluated. Before reading Superagency, I tended to think of AI development as fast-moving and poorly controlled. The authors describe benchmarks, internal testing standards, and technical evaluations that developers use to measure performance and reduce errors. Learning about these practices made AI feel less chaotic and more like a system that is constantly being adjusted. While this did not erase my concerns about bias or misuse, it helped me see that AI development involves more intentional decision-making than I previously assumed.</p>
+<section id="are-ai-writing-detectors-accurate-should-we-use-it" class="level1">
+<h1>Are AI writing detectors accurate? Should we use it?</h1>
+<p>As generative AI tools like ChatGPT become increasingly integrated into writing workflows, from student essays to professional reports, questions about authorship and originality have followed close behind. In response, a market of AI writing detection tools has emerged, promising to distinguish between human-written and AI-generated text. But how accurate are these tools in practice? And should we be using them at all? This post examines the current landscape of AI writing detectors, discusses their limitations, and compares off-the-shelf tools with self-written prompt-based approaches that emphasize process transparency and human judgment.</p>
+<p>AI writing detectors analyze text to estimate the likelihood that it was produced by a language model rather than a human. These tools typically rely on statistical and stylistic features, such as sentence predictability, vocabulary patterns, and structural regularity, that have been associated with machine-generated text. Their intended use cases include academic integrity checks, hiring or application screening, and editorial review. In theory, these tools offer a quick way to assess whether a piece of writing may have been generated by AI.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="collab.png" class="img-fluid figure-img"></p>
-<figcaption>Collaboration in ChatGPT</figcaption>
+<p><img src="detector.png" class="img-fluid figure-img"></p>
+<figcaption>AI Writing Detection</figcaption>
 </figure>
 </div>
-<p>Thinking of this function in application, I think it will help greatly on collaborative learning. One of the criticisms of AI for learning is that it only allows 1 on 1 interaction with AI. However, now with the collaboration function, AI can facilitate group dynamics. First of all, by having an AI facilitator, group projects can be done easier. One push back or frustration for students to complete group projects is that groups do not work efficiently when some people do not respond or when no one is willing to share inspiring ideas. AI chatbot can jump in group chats, prompt people and perhaps even provide fairer grading for group projects. For example, teacher may send a prompt to AI to have it evaluate students’ engagement. I am looking forward for prompt that makes use of collaboration in Chatgpt!</p>
+<section id="accuracy-challenges-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="accuracy-challenges-in-practice">Accuracy Challenges in Practice</h2>
+<p>Despite their widespread adoption, AI writing detectors face significant accuracy issues. One major concern is the high rate of false positives. Well-structured, formal, or polished writing is often flagged as AI-generated even when it is written by humans. This is particularly problematic in academic contexts, where clarity and structure are encouraged</p>
+<p>At the same time, false negatives are also common. Shorter, simpler, or lightly edited AI-generated text can easily evade detection. Small human edits may further reduce detectable signals, making the results unreliable. Another challenge is that language models evolve more quickly than detection tools. Detectors trained on earlier generations of AI output may fail to identify text produced by newer models. Different detectors also frequently disagree with one another, producing inconsistent assessments for the same piece of writing. Overall, detector outputs should be understood as probabilistic indicators rather than definitive judgments.</p>
+</section>
+<section id="self-written-prompts-as-an-alternative-approach" class="level2">
+<h2 class="anchored" data-anchor-id="self-written-prompts-as-an-alternative-approach">Self-Written Prompts as an Alternative Approach</h2>
+<p>An alternative to post hoc detection is to focus on transparency during the writing process itself. Self-written prompt strategies emphasize documenting how AI is used, rather than attempting to infer authorship after the text is produced.</p>
+<p>In this approach, writers use structured prompts and maintain a visible interaction history with AI tools. This allows reviewers to understand how ideas were generated, revised, and refined. Instead of guessing whether text is AI-generated, evaluators can see the role AI played in the process.</p>
+<p>This model shifts responsibility toward intentional use and reflection. Human judgment remains central, as reviewers assess not only the final product but also the reasoning, revisions, and decision-making that shaped it.</p>
+<p>Market detection tools offer convenience and scalability. They are easy to use and can quickly flag text for further review. However, their lack of contextual awareness limits their reliability and makes them unsuitable as standalone evidence. Prompt-based strategies require more effort upfront but offer greater transparency. They support learning and accountability by making the writing process visible. Rather than focusing on punishment or suspicion, this approach encourages clearer expectations and more meaningful evaluation of writing.</p>
+</section>
+<section id="should-we-use-ai-writing-detectors" class="level2">
+<h2 class="anchored" data-anchor-id="should-we-use-ai-writing-detectors">Should We Use AI Writing Detectors?</h2>
+<p>AI writing detectors can be useful as a preliminary signal, but they should not be treated as authoritative. Their results require interpretation and should always be supplemented with human review and contextual understanding. In educational settings especially, reliance on detectors alone risks misclassification and undermines trust. A more productive approach combines limited detector use with process-oriented strategies that emphasize learning goals, transparency, and responsible AI use.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>AI writing detectors attempt to solve a complex problem by analyzing text in isolation. Current tools struggle because they treat writing as a static artifact rather than as the outcome of a process. Approaches that foreground how writing is created, including the role AI plays, offer a more reliable and educationally meaningful path forward. Rather than asking whether a text was written by AI or a human, it may be more useful to ask how the text was produced and what that process reveals about understanding, effort, and intent.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

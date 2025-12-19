@@ -2,8 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/W15_P2_SumSuperagency/sumbook.html",
+      "/posts/W16_P1_Future/sumbook.html",
       "/posts/W9_P3_AI_Hiring/AI_hiring.html",
       "/posts/W13_P2_Tutor/tutor.html",
+      "/posts/W14_P1_Image/5.2image.html",
+      "/posts/W15_P1_Writing_Detector/detector.html",
       "/posts/W13_P1_SocialGood/socialgood.html",
       "/posts/W12_P2_Guitar/guitar.html",
       "/posts/W12_P1_Illustration/illustration.html",
