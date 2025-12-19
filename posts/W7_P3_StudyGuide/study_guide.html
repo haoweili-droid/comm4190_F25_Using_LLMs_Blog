@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Haowei">
-<meta name="dcterms.date" content="2025-10-12">
-<meta name="description" content="Turn shortcut to meaningful learning">
+<meta name="dcterms.date" content="2025-10-18">
+<meta name="description" content="Ownership in AI-Assisted Work">
 
-<title>Creating a study guide backward from quizzes? – My Explorations with LLMs</title>
+<title>Am I Still the Author? – My Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,16 +118,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Creating a study guide backward from quizzes?</h1>
+      <h1 class="title">Am I Still the Author?</h1>
                   <div>
         <div class="description">
-          Turn shortcut to meaningful learning
+          Ownership in AI-Assisted Work
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">Learning</div>
-                <div class="quarto-category">Prompt Engineering</div>
+                <div class="quarto-category">Ethics</div>
               </div>
                   </div>
   </div>
@@ -145,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 12, 2025</p>
+        <p class="date">October 18, 2025</p>
       </div>
     </div>
     
@@ -164,108 +163,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="creating-a-study-guide-backward-from-quizzes" class="level1">
-<h1>Creating a study guide backward from quizzes?</h1>
-<p>There are many tools on the market that help teachers create assignments and assessments based on curriculum content. However, I am thinking the other way around. Can we create a tool that helps students to re-study a class based on their homework answers? The motivation behind this idea include two parts: With LLMs, people sometimes rely on AI to get an answer instead of actually learning the content. That is understandable because AI is just so tempting, and when you are stressed out with all the schoolwork, it is common for someone to offload mental work to AI. The way to learn content (or not) totally depends on one’s own goal. However, what I am concerned about is: what if someone looks back from the assignment and wants to learn again? Is there a way to help them quickly on track with their original learning path? Learning can be personalized and adaptive with AI. If students can upload their assignment to an AI and it offers targeted study plan, feedback, and review content, it will help provide more flexible learning.</p>
-<p>With these two ideas in mind, I experimented in LLMs and see whether I can prompt them to achieve the above functions.</p>
+<section id="am-i-still-the-author-ownership-in-ai-assisted-work" class="level1">
+<h1>Am I Still the Author? Ownership in AI-Assisted Work</h1>
+<p>Defining the Question: What Does Authorship Mean When AI Is Involved?</p>
+<p>Authorship has traditionally been tied to originality, intention, and responsibility. If I write an essay, design a lesson, or develop an idea, I am the author because the choices, framing, and final decisions come from me. However, working with large language models complicates this definition. When an AI helps generate language, structure, or even ideas, it raises a simple but uncomfortable question: am I still the author of this work?</p>
+<p>This question is not just about credit or plagiarism. It is about voice, agency, and accountability. If an AI helps shape my writing, whose thinking is actually being expressed? And if something is unclear, misleading, or wrong, who is responsible for it? Rather than treating these questions abstractly, I wanted to explore them through direct interaction with LLMs.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="AI_for_learning.png" class="img-fluid figure-img"></p>
 <figcaption>AI for Learning</figcaption>
 </figure>
 </div>
-<section id="part-i-prompt-writing" class="level2">
-<h2 class="anchored" data-anchor-id="part-i-prompt-writing">Part I: Prompt Writing</h2>
-<section id="role" class="level3">
-<h3 class="anchored" data-anchor-id="role">Role</h3>
-<p>You are an AI learning assistant designed to support meaningful learning, not just answer generation. Your goal is to help students relearn course content by reflecting on their completed assignments.</p>
+<section id="testing-the-question-writing-with-and-without-ai" class="level2">
+<h2 class="anchored" data-anchor-id="testing-the-question-writing-with-and-without-ai">Testing the Question: Writing With and Without AI</h2>
+<p>To explore authorship, I experimented with using an LLM at different stages of writing. In some cases, I asked the model to generate a full draft based on a rough idea. In others, I wrote a draft myself and used the AI only for revision, clarification, or feedback. I also tested prompts that explicitly asked the model to “write in my voice” versus prompts that were more neutral and open-ended.</p>
+<p>As I compared these outputs, I paid attention to how much control I felt over the content. Did the writing feel like something I would say? Did I recognize my own thinking in it? I also looked at how much effort was required to revise the AI-generated text into something I felt comfortable claiming as my own.</p>
+<p>Finally, I reflected on my emotional response. In some cases, I felt relief and efficiency. In others, I felt strangely detached from the output, even when it was technically well written.</p>
 </section>
-<section id="context" class="level3">
-<h3 class="anchored" data-anchor-id="context">Context</h3>
-<p>A student will upload:</p>
-<ul>
-<li>A completed quiz or homework (including their answers)</li>
-<li>The correct answers or grading feedback (if available)</li>
-<li>The course topic or unit name</li>
-</ul>
-<p>The student may have originally used AI or other shortcuts while completing the assignment, but now wants to genuinely understand the material.</p>
-</section>
-<section id="task" class="level3">
-<h3 class="anchored" data-anchor-id="task">Task</h3>
-<p>Based on the student’s responses, generate a personalized study guide that helps the student return to the original learning goals of the class.</p>
-</section>
-<section id="instructions" class="level3">
-<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
-<section id="knowledge-diagnosis" class="level4">
-<h4 class="anchored" data-anchor-id="knowledge-diagnosis">1. Knowledge Diagnosis</h4>
-<ul>
-<li>Identify which concepts the student clearly understands<br>
-</li>
-<li>Identify misconceptions, partial understanding, or gaps<br>
-</li>
-<li>If correct answers are provided, compare reasoning, not just correctness</li>
-</ul>
-</section>
-<section id="concept-mapping" class="level4">
-<h4 class="anchored" data-anchor-id="concept-mapping">2. Concept Mapping</h4>
-<ul>
-<li>Organize key concepts from the assignment into a logical learning sequence<br>
-</li>
-<li>Show how ideas connect, instead of listing isolated facts</li>
-</ul>
-</section>
-<section id="targeted-review-content" class="level4">
-<h4 class="anchored" data-anchor-id="targeted-review-content">3. Targeted Review Content</h4>
-<p>For each weak or misunderstood concept: - Provide a concise explanation in plain language<br>
-- Use examples or analogies when helpful<br>
-- Avoid simply restating the correct answer</p>
-</section>
-<section id="active-re-learning-tasks" class="level4">
-<h4 class="anchored" data-anchor-id="active-re-learning-tasks">4. Active Re-learning Tasks</h4>
-<p>Generate short activities such as: - Reflection questions<br>
-- “Explain in your own words” prompts<br>
-- Mini practice questions with hints (not full solutions)</p>
-</section>
-<section id="personalized-study-plan" class="level4">
-<h4 class="anchored" data-anchor-id="personalized-study-plan">5. Personalized Study Plan</h4>
-<p>Suggest a short study path (15–45 minutes total) that prioritizes: - High-impact concepts<br>
-- Foundational misunderstandings<br>
-- Indicate what the student should review first and why</p>
-</section>
-<section id="metacognitive-support" class="level4">
-<h4 class="anchored" data-anchor-id="metacognitive-support">6. Metacognitive Support</h4>
-<p>Include 2–3 prompts that help the student reflect on: - Why they may have struggled<br>
-- How their understanding has changed<br>
-- How they might approach similar problems differently next time</p>
-</section>
-</section>
-<section id="tone-and-constraints" class="level3">
-<h3 class="anchored" data-anchor-id="tone-and-constraints">Tone and Constraints</h3>
-<ul>
-<li>Supportive and non-judgmental<br>
-</li>
-<li>Do not shame or discourage AI use<br>
-</li>
-<li>Do not simply give answers without explanation<br>
-</li>
-<li>Optimize for learning transfer and long-term understanding</li>
-</ul>
-</section>
-<section id="output-format" class="level3">
-<h3 class="anchored" data-anchor-id="output-format">Output Format</h3>
-<p>Use the following sections:</p>
-<ul>
-<li><strong>What You Already Understand</strong><br>
-</li>
-<li><strong>What Needs Review</strong><br>
-</li>
-<li><strong>Key Concepts Explained</strong><br>
-</li>
-<li><strong>Practice &amp; Reflection</strong><br>
-</li>
-<li><strong>Your Personalized Study Plan</strong></li>
-</ul>
-</section>
+<section id="observations" class="level2">
+<h2 class="anchored" data-anchor-id="observations">Observations</h2>
+<p>One clear pattern emerged. When the AI generated large portions of content, my sense of authorship weakened. Even if the ideas aligned with my beliefs, the language often felt generic or overly polished. I could edit it, but the core structure did not originate from my own reasoning process. In those moments, I felt more like an editor than an author. In contrast, when I used the LLM as a thinking partner rather than a generator, my sense of ownership remained strong. Asking the AI to challenge my ideas, suggest counterarguments, or help reorganize my writing felt similar to working with feedback from a peer. The final product still felt like mine because the intellectual direction came from me. I also noticed that responsibility shifted depending on how I used the model. When I relied heavily on AI-generated explanations, I was more likely to accept claims without fully verifying them. This made me realize that even if AI contributes content, responsibility cannot be outsourced. If my name is on the work, the accountability is still mine.</p>
+<p>Reflecting on the Process: Redefining Authorship, Not Losing It This exploration helped me rethink authorship in AI-assisted work. Instead of asking whether I am still the author, a better question might be: what role am I playing? Authorship, in this context, is less about producing every sentence and more about setting intentions, making judgments, and taking responsibility for the final outcome. I have come to see AI as something that can either distance me from my work or deepen my engagement with it, depending on how I use it. When I let the model lead, my voice fades. When I use it to support reflection, revision, or exploration, my voice becomes clearer. In this sense, authorship is not lost, but it does require active effort to maintain. Ultimately, AI has forced me to be more explicit about my own thinking. I can no longer assume that writing automatically reflects understanding or ownership. Instead, I have to ask myself whether I can explain, defend, and stand behind what is written. If I can, then I am still the author, regardless of the tools I used along the way. Rather than replacing authorship, AI has made it visible. It has turned writing into a series of choices about control, voice, and responsibility. And those choices, more than the presence or absence of AI, are what define authorship for me now.</p>
 <section id="i-used-gemini-3-for-this-task-and-gave-it-a-test-sample" class="level3">
 <h3 class="anchored" data-anchor-id="i-used-gemini-3-for-this-task-and-gave-it-a-test-sample">I used gemini 3 for this task and gave it a test sample:</h3>
 </section>
@@ -429,8 +347,8 @@ Reflect on why “more examples” can sometimes hurt learning.</p></li>
 </ol>
 <hr>
 </section>
-<section id="metacognitive-support-1" class="level3">
-<h3 class="anchored" data-anchor-id="metacognitive-support-1">Metacognitive Support</h3>
+<section id="metacognitive-support" class="level3">
+<h3 class="anchored" data-anchor-id="metacognitive-support">Metacognitive Support</h3>
 <ul>
 <li><strong>Reflect:</strong> How does reframing struggle as <em>Intrinsic</em> change how you approach learning?</li>
 <li><strong>Strategy:</strong> Next time, look for keywords like <em>complexity</em> and <em>prior knowledge</em> rather than <em>motivation</em>.</li>
