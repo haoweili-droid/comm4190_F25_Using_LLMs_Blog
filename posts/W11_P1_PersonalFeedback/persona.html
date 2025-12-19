@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Haowei">
+<meta name="dcterms.date" content="2025-11-02">
+<meta name="description" content="Comparing AI Comments with Real Client Comments">
+
+<title>Public Speaking Coach Agent – My Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9d0d2c4fe2252cabc78cecb5d575732d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About the author</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/hw-li"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:lhaowei23@gmail.com"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Public Speaking Coach Agent</h1>
+                  <div>
+        <div class="description">
+          Comparing AI Comments with Real Client Comments
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Creativity</div>
+                <div class="quarto-category">Prompt Engineer</div>
+                <div class="quarto-category">Product Design</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Haowei </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 2, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="public-speaking-coach-agent" class="level1">
+<h1>Public Speaking Coach Agent</h1>
+<p>I have had an idea to create a public speaking coach agent that helps college students and working professionals to proofread projects, practice presentations or pitches and provide personalized comments by taking roles of stakeholders.</p>
+<p>Background: As LLMs are getting increasingly powerful, everyone can create products, yet few have the entrepreneurship skills to sell their products to investors and customers. People need perspectives on their work, but they cannot always find the most helpful resources. This presentation coach App can proof read any project including papers, product document, slide decks, posters, personal statement etc. Users just need to upload or take a photo of the work, and LLMs will play the role of a group of readers to provide evaluations from a particular perspective. The user can interact with the LLM via text, audio chat or even gesture, just like how people in the real world will communicate. LLM will hold role play sessions with the user to help them improve their speech. For example, if a marketing manager wants to proofread her campaign plan to prepare for her presentation with clients tomorrow, the LLM can play the role of specific clients and give targeted feedback that will help the marketing manager improve for the specific task. With this App, LLM can take on different personas to provide reviews. This will look similar to using LLM to do a product AB testing, but with richer details, more comprehensive suggestions on improving project and presentations, and more actionable results.</p>
+<p>To test this project idea, I tried uploading a presentation slide deck to gpt 5.2 and gemini 3 to ask for feedback. This slide is created for a product need finding class, and we have already presented to clients and received feedback, allowing me to compare LLMs answers with real world scenarios.</p>
+<p>Here is the prompt I wrote:</p>
+<blockquote class="blockquote">
+<p>You are marketing and R&amp;D managers at Campbell’s. You are working on your V8 product series and hope to attract more young consumers.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>You will see a presentation deck on a needfinding research a group conducted to investigate vegetable goodness for younger generation (age 18-34)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Task: 1- evaluate this presentation deck and point out strength and weakness. 2- give 2-3 follow up questions based on the slide 3- offer suggestions for improvement on the slides and presentation</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Output: a list of concise information</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="persona.png" class="img-fluid figure-img"></p>
+<figcaption>AI as a coach</figcaption>
+</figure>
+</div>
+<section id="chatgpt-response" class="level2">
+<h2 class="anchored" data-anchor-id="chatgpt-response">Chatgpt response :</h2>
+</section>
+<section id="evaluation-of-the-presentation-deck" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-of-the-presentation-deck">1. Evaluation of the Presentation Deck</h2>
+<section id="strengths" class="level3">
+<h3 class="anchored" data-anchor-id="strengths">Strengths</h3>
+<p><strong>Clear Target Audience Definition</strong> - Focus on 18–34-year-old students who cook less, value wellness, and prioritize convenience - Consistent and well-articulated through participant screening and personas</p>
+<p><strong>Strong Emotional Framing of “Vegetable Goodness”</strong> - Reframing health as emotion, identity, and self-care (rather than nutrients) - Aligns well with Gen Z and Millennial behavior</p>
+<p><strong>Well-Structured Qualitative Research Approach</strong> - Combination of interviews, observation (AEIOU), and design activities - Supports depth and triangulation of insights</p>
+<p><strong>Actionable Insight Translation</strong> - Insights clearly flow into opportunities, guiding questions, and concepts - “Reset moment” framing is especially effective</p>
+<p><strong>Compelling Final Concept Narrative (VitalPress)</strong> - Transparent pressing, campus placement, benefit-led choices, and QR-based trust cues - Strong alignment with trust and convenience findings</p>
+<p><strong>Visual Cohesion and Storytelling</strong> - Strong design language, storyboard, and emotional requirements - Makes the concept easy to imagine and emotionally resonant</p>
+<hr>
+</section>
+<section id="weaknesses" class="level3">
+<h3 class="anchored" data-anchor-id="weaknesses">Weaknesses</h3>
+<p><strong>Sample Limitations Not Explicitly Addressed</strong> - n = 9, all college-affiliated, mostly graduate students - Limits generalizability to broader 18–34 segment (non-students, working young adults)</p>
+<p><strong>Lack of Competitive Context</strong> - No comparison to existing solutions: - Campus vending - Smoothies and cafes - Bottled functional drinks - Existing V8 SKUs</p>
+<p><strong>Feasibility Gaps for R&amp;D and Operations</strong> - On-site cold pressing raises unanswered questions: - Food safety and sanitation - Cost per cup - Maintenance complexity - Ingredient spoilage and labor requirements</p>
+<p><strong>Business Model Underdeveloped</strong> - No pricing assumptions - No revenue model, pilot cost, or scalability discussion</p>
+<p><strong>Sustainability Claims Not Quantified</strong> - Sustainability framed as a value - Lacks concrete metrics (waste reduction, packaging impact, machine energy use)</p>
+<hr>
+</section>
+</section>
+<section id="follow-up-questions-for-the-team" class="level2">
+<h2 class="anchored" data-anchor-id="follow-up-questions-for-the-team">2. Follow-Up Questions for the Team</h2>
+<p><strong>Behavioral Validation</strong> - How frequently would students realistically purchase VitalPress in a week? - What would it replace (snacks, coffee, meals)?</p>
+<p><strong>Operational Feasibility</strong> - What constraints did you uncover or assume around hygiene, restocking, and cost? - What could limit on-demand cold pressing on campus?</p>
+<p><strong>Trust vs.&nbsp;Effort Tradeoff</strong> - Is watching vegetables being pressed essential for trust? - Could transparency cues (video, QR, sealed freshness indicators) achieve the same effect with lower effort?</p>
+<hr>
+</section>
+<section id="suggestions-for-improving-the-slides-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="suggestions-for-improving-the-slides-presentation">3. Suggestions for Improving the Slides &amp; Presentation</h2>
+<section id="content-improvements" class="level3">
+<h3 class="anchored" data-anchor-id="content-improvements">Content Improvements</h3>
+<p><strong>Add a “What We Did Not Study” Slide</strong> - Explicitly state scope limits: - Sample - Geography - Student-heavy skew</p>
+<p><strong>Include a Competitive Landscape Snapshot</strong> - Map VitalPress against: - Campus vending - Smoothie chains - Bottled functional beverages - Existing V8 products</p>
+<p><strong>Add a Light Business Reality Check</strong> - Even directional estimates of: - Price per drink - Daily volume needed to break even - Pilot vs.&nbsp;scaled rollout assumptions</p>
+<p><strong>Strengthen Sustainability Credibility</strong> - Include 1–2 measurable indicators: - Reusable cups - Ingredient waste reduction - Recyclable components</p>
+<hr>
+</section>
+<section id="slide-design-structure" class="level3">
+<h3 class="anchored" data-anchor-id="slide-design-structure">Slide Design &amp; Structure</h3>
+<p><strong>Reduce Text Density on Visual Framework Slide</strong> - Highlight 2–3 core tensions instead of full paragraphs</p>
+<p><strong>Make Key Insights More Declarative</strong> - Pair each insight with a one-line “So what for V8?”</p>
+<p><strong>Add a “Why V8 Is Uniquely Positioned” Slide</strong> - Connect brand heritage (vegetables, trust, familiarity) - Explain why competitors cannot easily replicate this</p>
+<hr>
+</section>
+<section id="presentation-delivery" class="level3">
+<h3 class="anchored" data-anchor-id="presentation-delivery">Presentation Delivery</h3>
+<p><strong>Tighten the Narrative Arc</strong> 1. Tension: busy students and mental load<br>
+2. Insight: health as emotional and low-effort<br>
+3. Opportunity: reset moments on campus<br>
+4. Solution: VitalPress as brand expression</p>
+<p><strong>End With a Pilot Recommendation</strong> - Example: <em>“1 campus, 2 machines, 1 semester, 3 success metrics”</em></p>
+<hr>
+<p><em>Optional next steps:</em> - Rewrite this as executive feedback slides<br>
+- Stress-test VitalPress vs bottled V8 extensions<br>
+- Turn this into a pilot proposal Campbell’s could realistically fund</p>
+</section>
+</section>
+<section id="gemini-response" class="level2">
+<h2 class="anchored" data-anchor-id="gemini-response">Gemini Response</h2>
+</section>
+<section id="gemini-feedback-campbells-marketing-rd-perspective" class="level2">
+<h2 class="anchored" data-anchor-id="gemini-feedback-campbells-marketing-rd-perspective">Gemini Feedback: Campbell’s Marketing &amp; R&amp;D Perspective</h2>
+<p>Hello! Speaking as your counterparts in <strong>Marketing and R&amp;D at Campbell’s</strong>, we’ve reviewed your <strong>VitalPress</strong> proposal. We are impressed by the depth of your user empathy and the boldness of the concept. It addresses a critical gap for us: making <strong>V8 relevant to a younger demographic</strong> that values freshness and transparency.</p>
+<p>Below is our evaluation of the deck, followed by questions and suggestions to help you refine this for your final presentation.</p>
+<hr>
+</section>
+<section id="evaluation-of-the-deck" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-of-the-deck">1. Evaluation of the Deck</h2>
+<section id="strengths-what-works-well" class="level3">
+<h3 class="anchored" data-anchor-id="strengths-what-works-well">Strengths (What Works Well)</h3>
+<p><strong>Deep Consumer Insight (Needfinding)</strong><br>
+You moved beyond surface-level observations. Identifying that <em>“Healthy is an emotion, not a nutrient label”</em> is a powerful insight. Recognizing that <em>“convenience is their new self-care”</em> effectively frames the conflict for busy students.</p>
+<p><strong>Strong Methodology</strong><br>
+The use of the <strong>AEIOU framework</strong> and <strong>projective exercises</strong> (e.g., sketching ideal products) generated rich qualitative data. Screening for users who <em>rarely cook but value vegetable intake</em> ensured you targeted the right “non-consumer.”</p>
+<p><strong>Visual Storytelling</strong><br>
+The storyboard clearly dramatizes the pain point (stress, hunger, poor choices) and the solution (a fresh reset). The transition from low-fidelity sketches to high-fidelity renders demonstrates a clear and thoughtful design process.</p>
+<p><strong>On-Trend Benefit Framing</strong><br>
+Shifting from nutrient-based claims (e.g., Vitamin C) to functional emotional states such as <strong>Focus</strong>, <strong>Calm</strong>, and <strong>Energy</strong> aligns well with current Gen Z wellness trends.</p>
+<hr>
+</section>
+<section id="weaknesses-areas-for-growth" class="level3">
+<h3 class="anchored" data-anchor-id="weaknesses-areas-for-growth">Weaknesses (Areas for Growth)</h3>
+<p><strong>Operational Feasibility (R&amp;D Perspective)</strong><br>
+The concept relies on daily restocking of fresh vegetables and a cold-press system inside the machine. From an R&amp;D standpoint, fresh produce spoilage and sanitation of an automated juicer (pulp disposal, pipe cleaning) are major technical hurdles that are not addressed.</p>
+<p><strong>Business Model Clarity (Marketing Perspective)</strong><br>
+While desirability is clear, viability is underdeveloped. Fresh produce combined with cold-press technology suggests a high price point. Would a student realistically pay $8–$10 for a vending machine juice?</p>
+<p><strong>Slide Density</strong><br>
+Some slides, particularly <strong>Secondary Research</strong> and <strong>Visual Framework</strong>, are text-heavy. In a live presentation, this risks pulling attention away from the presenter.</p>
+<hr>
+</section>
+</section>
+<section id="follow-up-questions" class="level2">
+<h2 class="anchored" data-anchor-id="follow-up-questions">2. Follow-Up Questions</h2>
+<p>As managers, we would ask the following during the Q&amp;A:</p>
+<p><strong>Trust &amp; Transparency</strong><br>
+You note that students rely on visual cues such as freshness and color to trust a product. If vegetables are hidden until pressed, how do users verify freshness before purchase? Is a transparent window enough, or do they need visibility into the raw inventory?</p>
+<p><strong>V8 Brand Connection</strong><br>
+Your research shows young consumers prefer clean-label and modern aesthetics. Does the V8 logo build trust, or does it carry legacy baggage (e.g., salty canned juice)? How does VitalPress bridge this perception gap?</p>
+<p><strong>The “Reset” Moment</strong><br>
+You identify the reset moment as the core opportunity. Is VitalPress intended as a <strong>meal replacement</strong> (satiety) or a <strong>refreshment</strong> (hydration)? This distinction affects calorie messaging and portion sizing.</p>
+<hr>
+</section>
+<section id="suggestions-for-improvement" class="level2">
+<h2 class="anchored" data-anchor-id="suggestions-for-improvement">3. Suggestions for Improvement</h2>
+<section id="refining-the-concept-the-product" class="level3">
+<h3 class="anchored" data-anchor-id="refining-the-concept-the-product">Refining the Concept (The Product)</h3>
+<p><strong>Address the “Messy” Reality</strong><br>
+To strengthen R&amp;D credibility, consider adjusting the mechanism. Instead of pressing raw vegetables on site, could VitalPress mix <strong>high-potency, flash-frozen vegetable purees</strong>? This reduces spoilage risk while preserving freshness and nutrient density (e.g., via HPP).</p>
+<p><strong>Enhance the App’s Role</strong><br>
+You mention an app for customization. Emphasize habit formation. Could users subscribe to a 3 PM “Focus” juice so it’s ready after class? This reinforces the ritual aspect uncovered in your research.</p>
+<hr>
+</section>
+<section id="refining-the-slides-the-pitch" class="level3">
+<h3 class="anchored" data-anchor-id="refining-the-slides-the-pitch">Refining the Slides (The Pitch)</h3>
+<p><strong>Show, Don’t Tell the Research</strong><br>
+On the Visual Framework slide, replace some explanatory text with direct interview quotes or observation photos to humanize the data.</p>
+<p><strong>Move the Storyboard Earlier</strong><br>
+Consider placing the storyboard before the final concept reveal. Let the audience feel the student’s stress and decision fatigue before introducing VitalPress as the solution.</p>
+<p><strong>Simplify the “Why”</strong><br>
+On Slide 3, multiple statistics dilute impact. Highlight one compelling data point (for example, the TikTok trust statistic) to create a stronger hook.</p>
+<hr>
+<p><em>Would you like help drafting a presentation script for the storyboard slide to ensure the emotional narrative lands effectively?</em></p>
+</section>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection:</h2>
+<p>In this task, Chatgpt provided answers closer to the actual scenario than Gemini. While Gemini focused on some nuanced details such as logo and branding, Chatgpt posted questions on findings about customer needs, which was exactly the questions we got in real presentation. There were 12 groups at the presentation in that class, but none of them were asked about logos or visual cues. Here, Chatgpt is better at understanding the context, the role of a marketing or L&amp;D manager, and the main requirement of a client presentation.</p>
+<p>Using AI to role-play as Marketing and R&amp;D managers at Campbell’s changed how I evaluated my own work. By forcing the AI to stay in character, I had to step outside the student or designer mindset and think from the perspective of people responsible for brand risk, feasibility, and long-term strategy. This surfaced gaps I had not fully addressed, especially around operational complexity, sanitation, pricing, and scalability. These concerns did not naturally emerge from user interviews, but they are essential in real-world product development. Seeing my concept questioned through this lens helped me understand where strong insights still needed structural support to become viable.</p>
+<p>At the same time, the AI persona functioned as a low-stakes rehearsal space for cross-functional critique. Because the feedback came from a simulated role rather than a real stakeholder, I was more open to iteration and less defensive about the idea. This made it easier to refine my argument and anticipate tough questions before a final presentation. Overall, this process showed me that AI is most valuable not as a content generator, but as a perspective-taking tool that helps bridge the gap between research-driven design and business reality.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/haoweili-droid\.github\.io\/comm4190_F25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
